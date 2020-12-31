@@ -7,7 +7,7 @@ test_violation {
 }
 
 test_no_violation {
-	test.no_violations(violation) with input as policy_input(10000)
+	test.no_violations(violation) with input as policy_input(1)
 }
 
 policy_input(runAsUser) = {

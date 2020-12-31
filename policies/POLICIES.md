@@ -9,7 +9,7 @@
 | K.SEC.05 | Privileged containers can allow almost completely unrestricted host access | [Link](https://kubesec.io/basics/containers-securitycontext-privileged-true/) |
 | K.SEC.06 | An immutable root filesystem can prevent malicious binaries being added to PATH and increase attack cost | [Link](https://kubesec.io/basics/containers-securitycontext-readonlyrootfilesystem-true/) |
 | K.SEC.07 | Force the running image to run as a non-root user to ensure least privilege | [Link](https://kubesec.io/basics/containers-securitycontext-runasnonroot-true/) |
-| K.SEC.08 | Run as a high-UID user to avoid conflicts with the host’s user table | [Link](https://kubesec.io/basics/containers-securitycontext-runasuser/) |
+| K.SEC.08 | Run as a UID higher than zero to avoid running as root | [Link](https://kubesec.io/basics/containers-securitycontext-runasuser/) |
 | K.SEC.09 | Managing /etc/hosts aliases can prevent Docker from modifying the file after a pod’s containers have already been started | [Link](https://kubesec.io/basics/spec-hostaliases/) |
 | K.SEC.10 | Sharing the host’s IPC namespace allows container processes to communicate with processes on the host | [Link](https://kubesec.io/basics/spec-hostipc/) |
 | K.SEC.11 | Sharing the host’s network namespace permits processes in the pod to communicate with processes bound to the host’s loopback adapter | [Link](https://kubesec.io/basics/spec-hostnetwork/) |
