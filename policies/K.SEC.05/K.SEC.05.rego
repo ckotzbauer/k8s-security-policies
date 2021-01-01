@@ -8,3 +8,9 @@ violation[msg] {
 	container.securityContext.privileged
 	msg = kubernetes.format(sprintf("%s in the %s %s is privileged", [container.name, kubernetes.kind, kubernetes.name]))
 }
+
+exception[rules] {
+	kubernetes.pods[pod]
+    pod.metadata.annotations["opa.policy.ignore/containers_securitycontext_privileged_true"]
+	rules := ["violation"]
+}

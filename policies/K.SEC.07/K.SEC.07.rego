@@ -8,3 +8,9 @@ violation[msg] {
 	not container.securityContext.runAsNonRoot
 	msg = kubernetes.format(sprintf("%s in the %s %s is running as root", [container.name, kubernetes.kind, kubernetes.name]))
 }
+
+exception[rules] {
+	kubernetes.pods[pod]
+    pod.metadata.annotations["opa.policy.ignore/containers_securitycontext_runasnonroot_true"]
+	rules := ["violation"]
+}

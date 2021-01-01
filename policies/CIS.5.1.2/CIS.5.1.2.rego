@@ -28,6 +28,12 @@ violation[msg] {
     msg = kubernetes.format(sprintf("Role %v - access to secrets is not allowed", [role.metadata.name]))
 }
 
+exception[rules] {
+	kubernetes.clusterroles[cr]
+    cr.metadata.annotations["opa.policy.ignore/cis_5_1_2"]
+	rules := ["violation"]
+}
+
 is_access_to_secrets_disallowed(role) = false {
     role.metadata.name == params.allowedClusterRoles[_]
 } else = true {
