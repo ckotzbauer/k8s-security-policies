@@ -8,3 +8,10 @@ violation[msg] {
 	not container.securityContext.readOnlyRootFilesystem
 	msg = kubernetes.format(sprintf("%s in the %s %s is not using a read only root filesystem", [container.name, kubernetes.kind, kubernetes.name]))
 }
+
+
+exception[rules] {
+	kubernetes.pods[pod]
+	pod.metadata.annotations["opa.policy.ignore/containers_securitycontext_readonlyrootfilesystem_true"]
+	rules := ["violation"]
+}
